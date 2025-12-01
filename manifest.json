@@ -1,8 +1,17 @@
 {
   "manifest_version": 3,
   "name": "MicroFocus Zones",
+  "short_name": "MicroFocus",
   "description": "Task-scoped tab capsules, semantic gates, and micro-focus timers to reduce distraction.",
   "version": "0.1.0",
+  "author": "Hayk Jomardyan",
+  "homepage_url": "https://github.com/jomardyan/MicroFocus-Zones",
+  "icons": {
+    "16": "assets/icon-16.png",
+    "32": "assets/icon-32.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  },
   "permissions": [
     "tabs",
     "storage",
@@ -23,7 +32,13 @@
     "default_path": "sidepanel.html"
   },
   "action": {
-    "default_title": "MicroFocus Zones"
+    "default_title": "MicroFocus Zones",
+    "default_icon": {
+      "16": "assets/icon-16.png",
+      "32": "assets/icon-32.png",
+      "48": "assets/icon-48.png",
+      "128": "assets/icon-128.png"
+    }
   },
   "content_scripts": [
     {
