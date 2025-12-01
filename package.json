@@ -1,0 +1,25 @@
+{
+  "name": "microfocus-zones",
+  "version": "0.1.0",
+  "description": "Task-scoped tab capsules, semantic gates, and micro-focus timers to reduce distraction.",
+  "scripts": {
+    "generate-assets": "node generate-assets-simple.js",
+    "build": "npm run generate-assets"
+  },
+  "keywords": [
+    "productivity",
+    "focus",
+    "timer",
+    "distraction",
+    "tabs",
+    "chrome-extension"
+  ],
+  "author": "MicroFocus Zones",
+  "license": "MIT",
+  "devDependencies": {
+    "archiver": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to MicroFocus Zones</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #060915;
+      --card: #0d1224;
+      --accent: #6dd6ff;
+      --accent-2: #7c5cff;
+      --text: #e8ecff;
+      --muted: #9aa6c8;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: rgba(0, 0, 0, 0.28);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f8ff;
+        --card: #ffffff;
+        --accent: #0ea5e9;
+        --accent-2: #8b5cf6;
+        --text: #0f172a;
+        --muted: #4b5563;
+        --border: rgba(0, 0, 0, 0.08);
+        --shadow: rgba(0, 0, 0, 0.12);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 18px 24px;
+      font-family: "Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 18% 16%, rgba(124, 92, 255, 0.18), transparent 32%),
+                  radial-gradient(circle at 82% 0%, rgba(109, 214, 255, 0.22), transparent 26%),
+                  var(--bg);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+    .page {
+      width: min(960px, 100%);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+    p { color: var(--muted); margin: 0 0 14px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 14px 42px var(--shadow);
+      margin-bottom: 14px;
+    }
+    .steps { display: grid; gap: 10px; }
+    .step {
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .step-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    code {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent-2), var(--accent));
+      color: #061226;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+      <div>
+        <div class="pill">Welcome</div>
+        <h1>MicroFocus Zones</h1>
+        <p>Create strict focus capsules, gate unrelated tabs, and restore your task context in one click.</p>
+      </div>
+      <button id="tutorial-theme-toggle" class="pill" style="cursor:pointer;border:none;background:linear-gradient(120deg,var(--accent-2),var(--accent));color:#061226;">Theme: System</button>
+    </div>
+
+    <div class="card">
+      <div class="step-title">What this is</div>
+      <p><strong>MicroFocus Zones</strong> builds task-scoped "mini desktops" in your browser. Each Zone captures the exact tabs you need for one task, hides or dims everything else, and adds a gentle gate when you drift.</p>
+      <p><strong>Why?</strong> Traditional blockers punish domains; this leans on task relevance. A YouTube debugger video is fine in an ESP32 task, but random music videos aren't.</p>
+      <p><strong>Use it for:</strong> deep work sessions, research with many tabs, writing, coding spikes, or any task where context switching kills flow.</p>
+      <p><strong>Core ideas:</strong> task capsules (saved tabs + notes), semantic-ish gates (ask "is this related?"), and micro-focus timers (25/50) to keep you honest without hard bans.</p>
+    </div>
+
+    <div class="card">
+      <div class="step-title">Quick start</div>
+      <div class="steps">
+        <div class="step"><div class="step-title">1) Pin the icon</div>Open <code>chrome://extensions</code> -> enable Developer Mode -> pin "MicroFocus Zones" in your toolbar.</div>
+        <div class="step"><div class="step-title">2) Open the side panel</div>Click the toolbar icon; the side panel opens automatically.</div>
+        <div class="step"><div class="step-title">3) Create a Zone</div>Add a task title + notes, then hit "Create Zone".</div>
+        <div class="step"><div class="step-title">4) Capture your current tabs</div>With relevant tabs open, click "Capture tabs" on that Zone to save the capsule.</div>
+        <div class="step"><div class="step-title">5) Enter the Zone</div>Click "Enter Zone". Unrelated pages will get a gate prompt.</div>
+        <div class="step"><div class="step-title">6) Run a focus timer (optional)</div>Start a 25m or 50m timer; the status shows on the live pill.</div>
+        <div class="step"><div class="step-title">7) Use the gate</div>When an unrelated page appears, choose: let through (research), 5-min break, mark off-task, or keep blocked.</div>
+        <div class="step"><div class="step-title">8) Exit</div>Use "Exit Zone" to end; history shows session stats.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="step-title">Tips</div>
+      <ul>
+        <li>Saved capsules remember URLs/titles (and attempt scroll positions); capture again anytime to refresh.</li>
+        <li>Chrome's special pages (<code>chrome://</code>) cannot be gated (content scripts aren't allowed there).</li>
+        <li>If the icon doesn't open the panel, update Chrome to the latest version.</li>
+      </ul>
+    </div>
+  </div>
+  <script src="tutorial.js" type="module"></script>
+</body>
+</html>

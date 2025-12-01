@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MicroFocus Zones</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Task-Scoped Focus</div>
+      <h1>MicroFocus Zones</h1>
+      <p>Create strict focus capsules, gate unrelated tabs, and restore your task context in one click.</p>
+    </div>
+    <div class="header-actions">
+      <button id="theme-toggle" class="btn ghost pill-btn" type="button">Theme: System</button>
+      <button id="help-btn" class="btn ghost pill-btn" type="button" title="Keyboard shortcuts">?</button>
+    </div>
+  </header>
+
+  <div class="actions card-actions">
+    <button id="self-test" class="btn secondary" type="button">Run self-test overlay</button>
+  </div>
+
+  <section class="card active-card">
+    <div class="card-head">
+      <div>
+        <div class="label">Active Zone</div>
+        <div id="active-title" class="title"></div>
+      </div>
+      <div id="active-status" class="pill muted">Idle</div>
+    </div>
+    <div id="active-body" class="card-body muted">No task running. Pick a Zone or create one below.</div>
+    <div class="actions" id="active-actions"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <div class="label">Create Zone</div>
+        <div class="title">New task capsule</div>
+      </div>
+      <button id="templates-toggle" class="btn ghost pill-btn" type="button" title="Show templates">📋</button>
+    </div>
+    
+    <div id="templates-section" class="templates-section hidden">
+      <div class="templates-grid">
+        <button class="template-btn" data-template="writing" title="Writing: focus on content creation">✍️ Writing</button>
+        <button class="template-btn" data-template="coding" title="Coding: development and debugging">💻 Coding</button>
+        <button class="template-btn" data-template="research" title="Research: academic/topic research">🔍 Research</button>
+        <button class="template-btn" data-template="design" title="Design: UI/UX design work">🎨 Design</button>
+        <button class="template-btn" data-template="reading" title="Reading: deep reading focused">📚 Reading</button>
+      </div>
+    </div>
+    
+    <form id="new-task-form" class="form">
+      <label>
+        Task title
+        <input type="text" id="task-title" placeholder="Write blog post on ESP32 OTA updates" required>
+      </label>
+      <label>
+        Notes / intent
+        <textarea id="task-notes" rows="3" placeholder="Key talking points, links, or acceptance criteria"></textarea>
+      </label>
+      <button type="submit" class="btn primary">Create Zone</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <div class="label">Zones</div>
+        <div class="title">Task capsules</div>
+      </div>
+    </div>
+    <div id="task-list" class="task-list muted"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <div class="label">Context history</div>
+        <div class="title">Focus sessions</div>
+      </div>
+    </div>
+    <div id="history" class="history muted"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <div class="label">Productivity Stats</div>
+        <div class="title">Focus insights</div>
+      </div>
+      <button id="export-csv" class="btn ghost pill-btn" type="button" title="Export to CSV">📥</button>
+    </div>
+    <div id="stats" class="stat-grid muted"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <div class="label">Settings</div>
+        <div class="title">Preferences</div>
+      </div>
+    </div>
+    <div class="settings-grid">
+      <label>
+        Break reminder
+        <select id="break-reminder">
+          <option value="0">Disabled</option>
+          <option value="15">Every 15 min</option>
+          <option value="30" selected>Every 30 min</option>
+          <option value="45">Every 45 min</option>
+          <option value="60">Every 60 min</option>
+        </select>
+      </label>
+      <label>
+        Daily focus goal
+        <div class="goal-input">
+          <input type="number" id="focus-goal" min="30" max="480" step="30" value="120">
+          <span>min</span>
+        </div>
+      </label>
+    </div>
+  </section>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>
