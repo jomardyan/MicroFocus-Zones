@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Task-scoped tab capsules, semantic gates, and micro-focus timers to reduce distraction.",
   "scripts": {
-    "generate-assets": "node generate-assets-simple.js",
+    "generate-assets": "node generate-assets.js",
     "build": "npm run generate-assets"
   },
   "keywords": [
@@ -17,7 +17,8 @@
   "author": "MicroFocus Zones",
   "license": "MIT",
   "devDependencies": {
-    "archiver": "^6.0.0"
+    "archiver": "^6.0.0",
+    "playwright": "^1.40.0"
   },
   "engines": {
     "node": ">=14.0.0"
